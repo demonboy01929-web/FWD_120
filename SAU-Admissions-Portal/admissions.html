@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | South Asian University</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap">
+    
+   
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="wrap">
+          <div class="brand-dropdown">
+
+    <a href="index.html" class="brand">
+        <img src="photos/saulogo.png" alt="SAU Logo">
+        <span>Admissions</span>
+        <span class="brand-arrow">⌄</span>
+    </a>
+
+    <div class="brand-dropdown-menu">
+
+        <a href="">HOME</a>
+        <a href="">ABOUT SAU</a>
+        <a href="">FACULTIES & DEPARTMENTS</a>
+        <a href="">RESERARCH & CENTER</a>
+        <a href="">STUDENT LIFE</a>
+        <a href="">MEDIA</a>
+        <a href="">PEOPLE</a>
+        <a href="">PLACEMENTS</a>
+        <a href="">CAREER</a>
+
+    </div>
+
+</div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="student-portal/index.html">Student Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="admission-page">
+            <div class="wrap">
+
+                <div class="admission-heading">
+                    <p class="admission-label">SOUTH ASIAN UNIVERSITY • ADMISSIONS 2026-27</p>
+                    <h1>Admissions Portal</h1>
+                    <p>
+                        Explore available admission pathways, check institutional eligibility criteria, 
+                        submit your online application, and track your student profile in real time.
+                    </p>
+                </div>
+                
+
+                <div class="quick-checklist-box">
+                    <h3>📋 Quick Application Checklist</h3>
+                    <p>Ensure you have your academic mark sheets, scanned passport photo, and relevant national test scorecards ready before filling out the form.</p>
+                    <a href="apply.html" class="btn checklist-btn">Proceed to Application Form →</a>
+                </div>
+
+                <div class="admission-intro">
+                    <h2>Modes of Admission</h2>
+                    <p>
+                        Admission to Bachelor's, Master's, and
+                        PhD programmes is offered through
+                        structured alternative admission pathways.
+                    </p>
+                </div>
+
+                <div class="admission-cards">
+
+                    <div class="admission-card">
+                        <span class="admission-number">01</span>
+                        <h2>SAU Entrance Test / CET Mode</h2>
+                        <p>
+                            Admission through specialized entrance
+                            examinations and computer-based tests
+                            conducted directly by South Asian University.
+                        </p>
+                        <ul>
+                            <li>For Indian candidates: Centre-based online proctored tests.</li>
+                            <li>For other SAARC candidates: Remote proctored online tests.</li>
+                        </ul>
+                        <a href="apply.html?mode=entrance" class="admission-btn secondary-btn">
+                            Apply via Entrance Mode →
+                        </a>
+                    </div>
+
+                    <div class="admission-card featured-card">
+                        <span class="admission-number">02</span>
+                        <h2>Direct Admission Mode</h2>
+                        <p>
+                            Apply without appearing for the
+                            SAU Entrance Test by mapping
+                            recognised national-level test scores or
+                            qualifying examination results.
+                        </p>
+                        <ul>
+                            <li>Undergraduate: JEE Main / CUET / NEET</li>
+                            <li>Postgraduate / Doctoral: CAT / CLAT / GATE / NET / JRF</li>
+                        </ul>
+                        <a href="apply.html?mode=direct" class="admission-btn">
+                            Apply via Direct Mode →
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- SAU HELP BOT -->
+
+<div class="sau-helpbot">
+
+    <button class="helpbot-toggle" id="helpbotToggle"
+        aria-label="Open SAU Help Assistant"
+        aria-expanded="false">
+        <span class="bot-icon">(•ᴗ•)</span>
+        <span class="helpbot-notification"></span>
+    </button>
+
+    <div class="helpbot-window" id="helpbotWindow" hidden>
+
+        <div class="helpbot-header">
+
+            <div class="helpbot-profile">
+                <div class="helpbot-avatar"><img src="photos/saulogo.png" alt="SAU logo"></div>
+
+                <div>
+                    <h3>SAU Assistant</h3>
+                    <span>Admissions Support</span>
+                </div>
+            </div>
+
+            <button class="helpbot-close"
+                id="helpbotClose"
+                aria-label="Close assistant">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="helpbot-messages" id="helpbotMessages"
+            aria-live="polite">
+
+            <div class="bot-message">
+                Hello! Welcome to South Asian University
+                Admissions.
+
+                <br><br>
+
+                I'm your virtual assistant. I can help you
+                with registration, applications, documents
+                and admission-related queries.
+
+                <br><br>
+
+                How can I help you today?
+            </div>
+
+        </div>
+
+        <div class="helpbot-quick-actions">
+
+            <button data-question="How do I register?">
+                Register
+            </button>
+
+            <button data-question="How do I apply?">
+                Apply
+            </button>
+
+            <button data-question="What documents are required?">
+                Documents
+            </button>
+
+            <button data-question="How can I check my application status?">
+                Application Status
+            </button>
+
+        </div>
+
+        <form class="helpbot-input-area" id="helpbotForm">
+
+            <input
+                type="text"
+                id="helpbotInput"
+                placeholder="Ask your question..."
+                autocomplete="off"
+                aria-label="Ask a question"
+                required
+            >
+
+            <button type="submit" aria-label="Send message">
+                &#10148;
+            </button>
+
+        </form>
+
+        <div class="helpbot-footer">
+            SAU Admissions Support
+        </div>
+
+    </div>
+
+</div>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-content">
+                <div>
+                    <b>South Asian University</b>
+                    <p>Maidan Garhi, New Delhi 110068</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="notifications.html">Notifications</a>
+                    <a href="student-portal/index.html">Student Portal</a>
+                </div>
+            </div>
+            <p class="copyright">© 2026 South Asian University</p>
+        </div>
+    </footer>
+
+  <script src="src/script.js"></script>
+</body>
+</html>

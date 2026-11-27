@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>SAU | Administrator Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style/admin.css">
+</head>
+
+<body class="admin-login-page">
+
+  <main class="login-layout">
+
+    <section class="login-visual">
+      <div class="login-brand">
+        <img src="photos/saulogo.png" alt="SAU Logo">
+        <div>
+          <strong>South Asian University</strong>
+          <small>ADMISSIONS OFFICE</small>
+        </div>
+      </div>
+
+      <div class="login-visual-content">
+        <p>ADMINISTRATION PORTAL</p>
+        <h1>Admissions,<br>managed with clarity.</h1>
+        <span>A secure workspace for authorised administrators.</span>
+      </div>
+
+      <footer>© 2026 South Asian University</footer>
+    </section>
+
+    <section class="login-form-section">
+
+      <div class="login-form-container">
+
+        <p class="login-eyebrow">RESTRICTED ACCESS</p>
+
+        <h2>Administrator sign in</h2>
+
+        <p class="login-description">
+          Sign in using your authorised administrator account.
+        </p>
+
+        <form id="adminLoginForm">
+
+          <label for="adminEmail">User ID</label>
+          <input
+         
+            id="adminEmail"
+            placeholder="Enter your USER ID"
+            autocomplete="username"
+            required
+          >
+
+          <label for="adminPassword">Password</label>
+
+          <div class="login-password">
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+            <button type="button" id="toggleAdminPassword">
+              Show
+            </button>
+          </div>
+
+          <p id="adminLoginError" class="login-error" hidden></p>
+
+          <button type="submit" id="adminLoginButton">
+            <span id="adminLoginButtonText">Sign in securely</span>
+            <span>→</span>
+          </button>
+
+        </form>
+
+        <div class="login-security">
+          <strong>⌑ Protected administrator access</strong>
+          <p>
+            Only the designated owner account is authorised.
+            Student accounts cannot access this workspace.
+          </p>
+        </div>
+
+      </div>
+
+      <footer class="login-bottom">
+        For authorised SAU administration use only.
+      </footer>
+
+    </section>
+
+  </main>
+
+ 
+  <script src="src/admin.js"></script>
+
+</body>
+</html>
