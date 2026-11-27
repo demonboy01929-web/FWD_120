@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAU Admissions | Admin Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Reuses your existing SAU stylesheet -->
+  <link rel="stylesheet" href="style/admin.css">
+</head>
+<body class="admin-body">
+
+  <header class="site-header admin-header">
+    <div class="wrap admin-header-wrap">
+      <a class="brand admin-brand" href="../SAU-Admissions/index.html">
+        <img src="photos/saulogo.png" alt="SAU Logo">
+        <span>Admissions <small>ADMINISTRATION</small></span>
+      </a>
+
+      <div class="admin-header-right">
+        <span class="admin-live"><i></i> Admin workspace</span>
+        <button class="admin-profile" type="button" id="adminProfileButton">
+          <span class="admin-avatar">A</span>
+          <span>Administrator</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="admin-profile-menu" id="adminProfileMenu" hidden>
+          <button type="button" id="adminLogout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-label">WORKSPACE</div>
+      <a class="sidebar-link active" href="#overview" data-section="overview"><span>▦</span> Overview</a>
+      <a class="sidebar-link" href="#notifications" data-section="notifications"><span>▤</span> Notifications</a>
+      <a class="sidebar-link" href="#programmes" data-section="programmes"><span>⌘</span> Programme controls</a>
+      <a class="sidebar-link" href="#students" data-section="students"><span>♙</span> Student records</a>
+      <a class="sidebar-link" href="#activity" data-section="activity"><span>◷</span> Login activity</a>
+      <div class="sidebar-note">
+        <img src="photos/saucampus.jpg" alt="SAU campus">
+        <b>South Asian University</b>
+        <span>Admissions management workspace</span>
+      </div>
+      <p class="sidebar-foot">SAU Admissions · 2026–27</p>
+    </aside>
+
+    <div class="admin-main">
+      <div class="admin-mobile-bar">
+        <button type="button" id="sidebarToggle" aria-label="Toggle navigation">☰</button>
+        <span>Admin dashboard</span>
+      </div>
+
+      <!-- OVERVIEW -->
+      <section class="admin-section" id="overview">
+        <div class="admin-welcome">
+          <div>
+            <p class="small-heading">SOUTH ASIAN UNIVERSITY</p>
+            <h1>Admissions dashboard</h1>
+            <p>Manage admissions updates, programme access and student information from one place.</p>
+          </div>
+          <div class="welcome-image">
+            <img src="photos/saucampus.jpg" alt="Replace with an SAU campus photograph">
+          </div>
+        </div>
+
+        <div class="admin-stats">
+          <article class="admin-stat">
+            <span class="stat-icon">♙</span>
+            <span class="stat-label">Student accounts</span>
+            <strong id="totalStudents">0</strong>
+            <small>Records in this demo</small>
+          </article>
+          <article class="admin-stat">
+            <span class="stat-icon">●</span>
+            <span class="stat-label">Active sessions</span>
+            <strong id="activeStudents">0</strong>
+            <small>Demo activity counter</small>
+          </article>
+          <article class="admin-stat">
+            <span class="stat-icon">▤</span>
+            <span class="stat-label">Notifications</span>
+            <strong id="totalNotifications">0</strong>
+            <small>Saved announcements</small>
+          </article>
+          <article class="admin-stat">
+            <span class="stat-icon">⌘</span>
+            <span class="stat-label">Open programmes</span>
+            <strong id="openProgrammes">0</strong>
+            <small>Currently enabled</small>
+          </article>
+        </div>
+
+        <div class="admin-content-grid">
+          <article class="admin-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="small-heading">QUICK ACTIONS</p>
+                <h2>Manage your portal</h2>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <button type="button" class="quick-action" data-go="notifications"><span>＋</span><b>Add notification</b><small>Publish an admissions update</small></button>
+              <button type="button" class="quick-action" data-go="programmes"><span>↗</span><b>Programme access</b><small>Open or close applications</small></button>
+              <button type="button" class="quick-action" data-go="students"><span>♙</span><b>Add student</b><small>Create a student record</small></button>
+            </div>
+          </article>
+          <article class="admin-panel admin-photo-panel">
+            <img src="photos/sauclassroom.jpg" alt="Replace with a classroom photograph">
+            <div>
+              <p class="small-heading">ADMINISTRATION</p>
+              <h2>Keep admissions information current.</h2>
+              <p>Changes made here are stored in this browser demo. Connect a secure backend before using real student data.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+      <section class="admin-section" id="notifications">
+        <div class="admin-page-heading">
+          <div>
+            <p class="small-heading">CONTENT MANAGEMENT</p>
+            <h2>Notifications</h2>
+            <p>Create, update, publish or remove admissions announcements.</p>
+          </div>
+          <button class="btn" type="button" id="newNoticeButton">＋ New notification</button>
+        </div>
+
+        <div class="admin-panel">
+          <form id="noticeForm" class="admin-form" hidden>
+            <div class="form-topline">
+              <div><p class="small-heading">NOTICE EDITOR</p><h3 id="noticeFormTitle">Add notification</h3></div>
+              <button type="button" class="icon-button" id="cancelNotice" aria-label="Close form">×</button>
+            </div>
+            <input type="hidden" id="noticeId">
+            <div class="admin-form-grid">
+              <label class="admin-field admin-field-wide">Notification title
+                <input type="text" id="noticeTitle" placeholder="Enter notification title" required>
+              </label>
+              <label class="admin-field">Category
+                <select id="noticeCategory">
+                  <option>Admissions</option><option>Hostel</option><option>Registration</option><option>Merit List</option><option>Spot Round</option><option>General</option>
+                </select>
+              </label>
+              <label class="admin-field">Date
+                <input type="date" id="noticeDate" required>
+              </label>
+              <label class="admin-field admin-field-wide">Short description
+                <textarea id="noticeDescription" rows="3" placeholder="Add a short summary for students"></textarea>
+              </label>
+              <label class="admin-field admin-field-wide">Document / notice link
+                <input type="url" id="noticeLink" placeholder="https://... (optional)">
+              </label>
+            </div>
+            <div class="admin-form-actions">
+              <label class="inline-check"><input type="checkbox" id="noticePublished" checked> Publish immediately</label>
+              <button class="btn" type="submit">Save notification</button>
+            </div>
+            <p class="form-message info" id="noticeMessage" hidden></p>
+          </form>
+
+          <div class="table-toolbar">
+            <div><h3>All notifications</h3><p>Manage the notices shown on the admissions website.</p></div>
+            <input type="search" id="noticeSearch" placeholder="Search notifications...">
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Notification</th><th>Category</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="noticeTableBody"></tbody>
+            </table>
+          </div>
+          <p class="empty-state" id="noticeEmpty" hidden>No notifications found. Add your first notification above.</p>
+        </div>
+      </section>
+
+      <!-- PROGRAMMES -->
+      <section class="admin-section" id="programmes">
+        <div class="admin-page-heading">
+          <div>
+            <p class="small-heading">APPLICATION SETTINGS</p>
+            <h2>Programme controls</h2>
+            <p>Control which programme pages and application links are available to students.</p>
+          </div>
+        </div>
+        <div class="admin-panel">
+          <div class="table-toolbar"><div><h3>Application availability</h3><p>Switch a programme on or off. Changes are demo-only until connected to a backend.</p></div></div>
+          <div id="programmeControls" class="programme-control-list"></div>
+        </div>
+
+        <div class="admin-panel shortcut-panel">
+          <div class="panel-heading">
+            <div><p class="small-heading">STUDENT WEBSITE</p><h3>Quick programme access</h3><p>These shortcuts can be shown on the admissions homepage.</p></div>
+          </div>
+          <div class="shortcut-grid" id="shortcutGrid"></div>
+        </div>
+      </section>
+
+      <!-- STUDENTS -->
+      <section class="admin-section" id="students">
+        <div class="admin-page-heading">
+          <div>
+            <p class="small-heading">STUDENT INFORMATION</p>
+            <h2>Student records</h2>
+            <p>Add or update the sample student details displayed in the student portal.</p>
+          </div>
+          <button class="btn" type="button" id="newStudentButton">＋ Add student</button>
+        </div>
+        <div class="admin-panel">
+          <form id="studentForm" class="admin-form" hidden>
+            <div class="form-topline">
+              <div><p class="small-heading">STUDENT RECORD</p><h3 id="studentFormTitle">Add student</h3></div>
+              <button type="button" class="icon-button" id="cancelStudent" aria-label="Close form">×</button>
+            </div>
+            <input type="hidden" id="studentId">
+            <div class="admin-form-grid">
+              <label class="admin-field">Full name<input type="text" id="studentName" required></label>
+              <label class="admin-field">Student / application ID<input type="text" id="studentNumber" required></label>
+              <label class="admin-field">Email address<input type="email" id="studentEmail" required></label>
+              <label class="admin-field">Programme
+                <select id="studentProgramme"><option>Bachelor's</option><option>Master's</option><option>PhD</option></select>
+              </label>
+              <label class="admin-field">Admission status
+                <select id="studentStatus"><option>Application received</option><option>Under review</option><option>Provisionally admitted</option><option>Admitted</option><option>Not selected</option></select>
+              </label>
+            </div>
+            <div class="admin-form-actions"><button class="btn" type="submit">Save student record</button></div>
+          </form>
+          <div class="table-toolbar">
+            <div><h3>Student directory</h3><p>Only use fictional/sample details in this frontend demonstration.</p></div>
+            <input type="search" id="studentSearch" placeholder="Search students...">
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Student</th><th>Student ID</th><th>Programme</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="studentTableBody"></tbody>
+            </table>
+          </div>
+          <p class="empty-state" id="studentEmpty" hidden>No student records yet. Add a sample record to get started.</p>
+        </div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section class="admin-section" id="activity">
+        <div class="admin-page-heading">
+          <div><p class="small-heading">PORTAL ANALYTICS</p><h2>Login activity</h2><p>Understand account activity at a glance.</p></div>
+        </div>
+        <div class="admin-content-grid">
+          <article class="admin-panel activity-summary">
+            <p class="small-heading">DEMO LOGIN METRICS</p>
+            <h3>Login monitoring</h3>
+            <div class="activity-number" id="loginCount">0</div>
+            <p>Total demo login events recorded in this browser.</p>
+            <div class="activity-number secondary" id="activeCountLarge">0</div>
+            <p>Active sessions cannot be measured reliably by this standalone frontend.</p>
+          </article>
+          <article class="admin-panel activity-image">
+            <img src="saustudents.jpg" alt="Replace with a student life photograph">
+            <div><p class="small-heading">STUDENT COMMUNITY</p><h3>One place for admissions updates.</h3><p>Real login counts, active sessions and last-login information require authenticated server-side tracking.</p></div>
+          </article>
+        </div>
+        <div class="admin-panel">
+          <div class="table-toolbar"><div><h3>Recent activity</h3><p>Sample activity log for this browser.</p></div></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table"><thead><tr><th>Event</th><th>Details</th><th>Time</th></tr></thead><tbody id="activityTableBody"></tbody></table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="admin-footer">© 2026 South Asian University · Admissions Administration</footer>
+    </div>
+  </main>
+
+  <script src="src/admin.js"></script>
+</body>
+</html>
